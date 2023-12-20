@@ -34,12 +34,12 @@ function runGame(gameType) {
 function checkAnswer() {
   let userAnswer = parseInt(document.getElementById("answer-box").value);
   let calculatedAnswer = calculateCorrectAnswer();
-  let isCorrect = userAnswer === calculateCorrectAnswer[0];
+  let isCorrect = userAnswer === calculatedAnswer[0];
 
   if (isCorrect) {
     alert("Hey! You got it right");
   } else {
-    alert(`You idiot, the answer was ${calculateCorrectAnswer[0]}!`);
+    alert(`You idiot, the answer was ${calculatedAnswer[0]}!`);
   }
   runGame(calculatedAnswer[1]);
 }
