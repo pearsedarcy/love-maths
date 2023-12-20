@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   for (let button of buttons) {
     button.addEventListener("click", function () {
       if (this.getAttribute("data-type") === "submit") {
-        alert("You clicked Submit!");
+        checkAnswer();
       } else {
         let gameType = this.getAttribute("data-type");
         runGame(gameType);
@@ -31,8 +31,30 @@ function runGame(gameType) {
   }
 }
 
-function checkAnswer() {}
-function calculateCorrectAnswer() {}
+function checkAnswer() {
+  let userAnswer = parseInt(document.getElementById("answer-box").value);
+  let calculatedAnswer = calculateCorrectAnswer();
+  let isCorrect = userAnswer === calculateCorrectAnswer[0];
+
+  if (isCorrect) {
+    alert("Hey! You got it right");
+  } else {
+    alert(`You idiot, the answer was ${calculateCorrectAnswer[0]}!`);
+  }
+  runGame(calculatedAnswer[1]);
+}
+
+function calculateCorrectAnswer() {
+  let operand1 = parseInt(document.getElementById("operand1").innerText);
+  let operand2 = parseInt(document.getElementById("operand2").innerText);
+  let operator = document.getElementById("operator").innerText;
+  if (operator === "+") {
+    return [operand1 + operand2, "addition"];
+  } else {
+    alert(`Unimplemenmeted operator ${operator}`);
+    throw `Unimplemenmeted operator ${operator}. Aborting!`;
+  }
+}
 
 function incremementScore() {}
 
