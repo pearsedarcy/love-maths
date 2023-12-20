@@ -52,10 +52,10 @@ function checkAnswer() {
 
   if (isCorrect) {
     alert("Hey! You got it right");
-    // incrementScore();
+    incrementScore();
   } else {
     alert(`You idiot, the answer was ${calculatedAnswer[0]}!`);
-    // incrementWrongAnswer();
+    incrementWrongAnswer();
   }
   runGame(calculatedAnswer[1]);
 }
